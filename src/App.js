@@ -1,28 +1,51 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import CustomNavbar from './components/Navbar';
+import DRForm from './components/DRForm';
+import Landing from './components/landing';
+import {BrowserRouter as Router,Route} from 'react-router-dom';
 import './App.css';
+import { Container ,Row,Col} from 'react-bootstrap';
+import Dashboard from './components/Dashboard'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+class App extends Component{
+render(){
+  let data = {
+  fName : '',
+  gender:"Male",
+  organ:"",
+  ABO:"",
+  Hospital:""
 }
+  return (
+    <Router>
+      <CustomNavbar />
+      
+      <Route exact path="/" component={Landing} />
+      <Container>
+        <Row>
+          <Col md={{span:6, offset:3}}>
+              <Route exact path="/donate" 
+                 render={() => <DRForm  btnName={"Donate"} data={data}/> }
+              />
+          </Col>
+          <Col md={{span:6, offset:3}}>
+              <Route exact path="/receive" 
+                  render={() => <DRForm  btnName={"Receive"} data={data}/>}
+               />
+          </Col>
+          <Col md={{span:8, offset:2}}>
+              <Route exact path="/dashboard" component={Dashboard} />
+          </Col>
+        </Row>        
+      </Container>
+     
+    
+    
+    </Router>
+  );
+}
+
+}
+  
 
 export default App;
