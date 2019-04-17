@@ -9,7 +9,7 @@ class CleverButton extends Component{
         this.state = {
           lgShow: false,
           data: {
-            DID: this.props.data.DID,
+            RID: this.props.data.RID,
             fName : this.props.data.Name,
             gender: this.props.data.sex,
             organ: this.props.data.organ,

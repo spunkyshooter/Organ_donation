@@ -13,7 +13,7 @@ const Address = (props)=>{
                     <Form.Control 
                     type="text" 
                     placeholder="House Number"
-                    name="HouseNo"
+                    name="House_No"
                     onChange={props.onChange}
                     value={props.add.House_No}                
                     />

@@ -24,7 +24,7 @@ class DRForm extends Component {
         let data = {...this.state}
         let url = ""
         if(this.props.btnName === "Update"){
-            url = "http://localhost:3002/api/edit/donate"
+            url = `http://localhost:3002/api/receive/edit/${this.state.RID}`
         }
         else if(this.props.btnName === "Donate"){
             url = "http://localhost:3002/api/donate"
@@ -33,8 +33,9 @@ class DRForm extends Component {
         }
         
        if(this.props.btnName === "Update"){
-           console.log("haha")
-            axios.get(url,data)
+           console.log("haha\n")
+           console.log(data);
+            axios.put(url,data)
             .then(res => console.log(res.data))
             .catch(err => console.log(err))
        } 
@@ -48,6 +49,7 @@ class DRForm extends Component {
 
     render(){
         const bttName = this.props.btnName;
+        console.log(this.state);
         return (
             <Container className="Formback">
                 <Row>
