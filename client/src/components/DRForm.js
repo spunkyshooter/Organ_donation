@@ -94,6 +94,9 @@ class DRForm extends Component {
                                 value={this.state.HLA}
                                 required
                                 />
+                                 <Form.Text className="text-muted">
+                                HLA is a string of length 8
+                                </Form.Text>
                             </Form.Group>
                             {/* blood group */}
                             <Form.Group controlId="exampleForm.ControlSelect2">

@@ -7,7 +7,8 @@ const Landing = () => (
     <Container style={{marginTop:30}} >
         <Row>
           <Col sm={12} md={6}>
-            <img src={process.env.PUBLIC_URL + '/assets/oldmaninbed.jpg'} width="100%"/>
+          {/* this is how we pass images */}
+            <img src={process.env.PUBLIC_URL + '/assets/oldmaninbed.jpg'} width="100%" alt="organDonation"/>
           </Col>
           <Col>
               <Jumbotron className="jumbo">

@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import {Table} from "react-bootstrap"
+import {Table,Row,Col,Container} from "react-bootstrap"
 import CleverButton from "./Cleverbutton"
 import Axios from 'axios'
 
@@ -19,17 +19,17 @@ class DashboardTable extends Component{
   }
   
   DeleteHandler =(RID) =>{
-    console.log("printing DID from Table"+ this.props.DID);
-    let url = `http://localhost:3002/api/receive/delete/${RID}`;
-   Axios.delete(url)
-   .then(result => console.log(result))
-   .catch(err => console.log(err))
-   this.setState((prevState) =>(
-    {data : prevState.data.filter(item => item.RID !== RID)}
-   ))
+    // console.log("printing DID from Table"+ this.props.DID);
+      let url = `http://localhost:3002/api/receive/delete/${RID}`;
+    Axios.delete(url)
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+    this.setState((prevState) =>(
+      {data : prevState.data.filter(item => item.RID !== RID)}
+    ))
 }
   render(){
-    //   console.log(this.state.data)
+      // console.log(this.state.data)
     let rows = this.state.data && this.state.data.map((donor,i) => (
         <tr key={i}>
 
@@ -41,14 +41,27 @@ class DashboardTable extends Component{
                 <td>{donor.House_No}</td>
                 <td>{donor.Street}</td>
                 <td>{donor.city}</td>
-                <td><CleverButton data={donor} DHandler={() => this.DeleteHandler(this.state.data[i].RID)}/></td>
+                {this.props.title === "All Recipients" &&
+                <td >
+                  <CleverButton 
+                  data={donor} 
+                  DHandler={() => this.DeleteHandler(this.state.data[i].RID)
+                  }/>
+                </td>
+                }
         </tr>
     ))
     return (
-        <div>
-
-           <h1>All Recipients</h1>
-
+        <div style={{marginTop:20}}>
+          <Container>
+            <Row>
+              <Col md={8}>
+              <h1>{this.props.title}</h1>
+              {this.props.title === "All Donors"&& <p>here we present you the real heros</p>}
+              </Col>
+              <Col  md={{span:3,offset:1}}> {this.props.children}</Col>
+            </Row>     
+           </Container>
             <Table striped bordered hover >
                 <thead>
                     <tr>
@@ -60,7 +73,7 @@ class DashboardTable extends Component{
                     <th>House_No</th>
                     <th>Street</th>
                     <th>City</th>
-                    <th>Modify</th>
+                    {this.props.title === "All Recipients" && <th>Modify</th>}
                     </tr>
                 </thead>
                 <tbody>

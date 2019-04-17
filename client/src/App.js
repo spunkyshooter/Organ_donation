@@ -33,13 +33,12 @@ render(){
                   render={() => <DRForm  btnName={"Receive"} data={data}/>}
                />
           </Col>
-          <Col md={{span:8, offset:2}}>
+          <Col md={{span:10, offset:1}}>
               <Route exact path="/dashboard" component={Dashboard} />
           </Col>
         </Row>        
       </Container>
      
-    
     
     </Router>
   );
