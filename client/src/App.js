@@ -6,6 +6,7 @@ import {BrowserRouter as Router,Route} from 'react-router-dom';
 import './App.css';
 import { Container ,Row,Col} from 'react-bootstrap';
 import Dashboard from './components/Dashboard'
+import Footer from './components/Footer';
 
 class App extends Component{
 render(){
@@ -33,12 +34,12 @@ render(){
                   render={() => <DRForm  btnName={"Receive"} data={data}/>}
                />
           </Col>
-          <Col md={{span:10, offset:1}}>
+          <Col md={{span:11,offset:1}}>
               <Route exact path="/dashboard" component={Dashboard} />
           </Col>
         </Row>        
       </Container>
-     
+     <Footer/>
     
     </Router>
   );

@@ -5,7 +5,7 @@ import {Navbar, Nav} from 'react-bootstrap';
 const CustomNavbar = () => {
     return (
       
-            <Navbar variant="dark" className="Navbarcolor">
+            <Navbar variant="dark" className="Navbarcolor" style={{marginBottom:15}}>
                 <Navbar.Brand href="/">
                     <img
                     alt=""

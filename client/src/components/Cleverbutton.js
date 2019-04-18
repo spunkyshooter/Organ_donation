@@ -94,24 +94,23 @@ class CleverButton extends Component{
     return(
             <div >
             <Row>
-                <Col md={2}>
+                <Col>
                     <Button 
-                    variant="outline-warning" 
-                    
+                    variant="outline-warning"                    
                     onClick={() => this.setState({ lgShow: true })}
                     >Edit</Button>
                 </Col>
-                <Col md={3}>      
+                <Col >      
                     <Button 
-                    style={{marginLeft:7}}
+                    // style={{marginLeft:7}}
                     variant="outline-danger" 
                     onClick={this.props.DHandler}
                     >Delete</Button>
                 </Col>
-                <Col md={3}>
+                <Col >
                 <Button
                         variant="outline-success"
-                        style={{marginLeft:7}}
+                        // style={{marginLeft:7}}
                         onClick={()=>{
                             this.setState({smShow:true})
                             this.searchMatchingDonor()

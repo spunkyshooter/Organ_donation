@@ -20,7 +20,7 @@ class DRForm extends Component {
 
     onSubmitHandler = (event) =>{
         console.log(this.state)
-        event.preventDefault()
+        // event.preventDefault()
         let data = {...this.state}
         let url = ""
         if(this.props.btnName === "Update"){

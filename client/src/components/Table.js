@@ -62,7 +62,7 @@ class DashboardTable extends Component{
               <Col  md={{span:3,offset:1}}> {this.props.children}</Col>
             </Row>     
            </Container>
-            <Table striped bordered hover >
+            <Table striped bordered hover responsive>
                 <thead>
                     <tr>
                     <th>Sl.No</th>
@@ -73,7 +73,7 @@ class DashboardTable extends Component{
                     <th>House_No</th>
                     <th>Street</th>
                     <th>City</th>
-                    {this.props.title === "All Recipients" && <th>Modify</th>}
+                    {this.props.title === "All Recipients" && <th>Modify/Match</th>}
                     </tr>
                 </thead>
                 <tbody>
