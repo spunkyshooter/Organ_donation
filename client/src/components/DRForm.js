@@ -6,12 +6,12 @@ class DRForm extends Component {
     constructor(props){
         super(props);
         this.state = {...this.props.data}
-        
+
     }
 
   onChangeHandler= (event) => {
         let form = event.target
-       
+
         this.setState({
             [form.name] :form.value
         })
@@ -31,20 +31,21 @@ class DRForm extends Component {
         }else {
             url = "http://localhost:3002/api/receive"
         }
-        
+
        if(this.props.btnName === "Update"){
            console.log("haha\n")
            console.log(data);
             axios.put(url,data)
             .then(res => console.log(res.data))
             .catch(err => console.log(err))
-       } 
+       }
        else{
+         
         axios.post(url,data)
         .then(res => console.log(res.data))
         .catch(err => console.log(err))
        }
-        
+
     }
 
     render(){
@@ -57,8 +58,8 @@ class DRForm extends Component {
                         <Form onSubmit={this.onSubmitHandler}>
                             <Form.Group controlId="formName">
                                 <Form.Label>Full Name</Form.Label>
-                                <Form.Control 
-                                    type="name" 
+                                <Form.Control
+                                    type="name"
                                     placeholder="Enter full name"
                                     name= "fName"
                                     onChange={this.onChangeHandler}
@@ -69,14 +70,14 @@ class DRForm extends Component {
                                 We'll never share your name with anyone else.
                                 </Form.Text>
                             </Form.Group>
-                        
+
                             < Form.Group controlId="exampleForm.ControlSelect1">
                                 <Form.Label>sex</Form.Label>
-                                <Form.Control as="select" 
+                                <Form.Control as="select"
                                 onChange={this.onChangeHandler}
                                 name="gender"
                                 value={this.state.gender}
-                                
+
                                 >
                                     <option defaultValue value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -86,7 +87,7 @@ class DRForm extends Component {
                             {/*HLA: string*/}
                             <Form.Group controlId="exampleForm.ControlTextarea1">
                                 <Form.Label>HLA</Form.Label>
-                                <Form.Control  
+                                <Form.Control
                                 type="text"
                                 placeholder="HLA"
                                 name="HLA"
@@ -101,7 +102,7 @@ class DRForm extends Component {
                             {/* blood group */}
                             <Form.Group controlId="exampleForm.ControlSelect2">
                                 <Form.Label>Blood Group</Form.Label>
-                                <Form.Control 
+                                <Form.Control
                                 as="select"
                                 onChange={this.onChangeHandler}
                                 name="ABO"
@@ -121,7 +122,7 @@ class DRForm extends Component {
                             {/* organ */}
                             <Form.Group>
                                 <Form.Label>Organ</Form.Label>
-                                <Form.Control 
+                                <Form.Control
                                 as="select"
                                 onChange={this.onChangeHandler}
                                 name="organ"
@@ -135,11 +136,11 @@ class DRForm extends Component {
                                     <option value="Bone Marrow">Bone Marrow</option>
                                     <option value="Heart">heart</option>
                                 </Form.Control>
-                               
+
                             </Form.Group>
-                            {/* address component */}   
-                            <Address 
-                                onChange={this.onChangeHandler} 
+                            {/* address component */}
+                            <Address
+                                onChange={this.onChangeHandler}
                                 add={{
                                     House_No:this.state.House_No,
                                     Street:this.state.Street,
@@ -148,13 +149,13 @@ class DRForm extends Component {
                                 />
                             <Form.Group>
                                 <Form.Label>Hospital</Form.Label>
-                                <Form.Control 
+                                <Form.Control
                                 as="select"
                                 onChange={this.onChangeHandler}
                                 name="Hospital"
                                 value={this.state.Hospital}
                                 >
-                               
+
                                     <option defaultValue>Select nearby Hospital</option>
                                     <option value="Manu Hospital">Manu Hospital</option>
                                     <option value="Manipal Hospital">Manipal Hospital</option>
@@ -170,7 +171,7 @@ class DRForm extends Component {
 
                 </Row>
             </Container>
-            
+
         );
     }
 }
